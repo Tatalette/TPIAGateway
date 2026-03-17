@@ -14,28 +14,44 @@ class PylintErrorDetector:
     def check(self) -> List[Dict[str, Any]]:
         """Exécute pylint et retourne la liste des problèmes détectés."""
         try:
+            # Appel à pylint avec format JSON
             result = subprocess.run(
                 [self.pylint_path, str(self.parser.filepath), "-f", "json"],
                 capture_output=True,
                 text=True,
-                check=False  # pylint peut retourner un code non nul même en cas de succès (s'il trouve des problèmes)
+                check=False
             )
-            if result.returncode not in (0, 2, 4, 8, 16, 32):
-                # Gestion des erreurs graves de pylint (fichier inexistant, etc.)
-                self.issues.append({
-                    'line': 0,
-                    'type': 'pylint_error',
-                    'message': f"Erreur lors de l'exécution de pylint : {result.stderr}",
-                })
-                return self.issues
 
-            # Parser la sortie JSON
+            # Pylint retourne un code non nul même s'il trouve des problèmes
             if result.stdout.strip():
-                data = json.loads(result.stdout)
-                for item in data:
-                    issue = self._convert_pylint_item(item)
-                    if issue:
-                        self.issues.append(issue)
+                try:
+                    data = json.loads(result.stdout)
+                    if isinstance(data, list):
+                        for item in data:
+                            issue = self._convert_pylint_item(item)
+                            if issue:
+                                self.issues.append(issue)
+                    else:
+                        self.issues.append({
+                            'line': 0,
+                            'type': 'pylint_error',
+                            'message': f"Format JSON inattendu : {result.stdout[:200]}"
+                        })
+                except json.JSONDecodeError as e:
+                    self.issues.append({
+                        'line': 0,
+                        'type': 'pylint_error',
+                        'message': f"Erreur de décodage JSON : {e}. Sortie : {result.stdout[:200]}"
+                    })
+            else:
+                # Pas de sortie, mais peut-être une erreur dans stderr
+                if result.stderr:
+                    self.issues.append({
+                        'line': 0,
+                        'type': 'pylint_error',
+                        'message': f"Erreur pylint : {result.stderr}"
+                    })
+
         except FileNotFoundError:
             self.issues.append({
                 'line': 0,
@@ -46,14 +62,13 @@ class PylintErrorDetector:
             self.issues.append({
                 'line': 0,
                 'type': 'pylint_exception',
-                'message': f"Exception inattendue lors de l'appel à pylint : {str(e)}",
+                'message': f"Exception inattendue : {str(e)}",
             })
+
         return self.issues
 
-    def _convert_pylint_item(self, item: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    def _convert_pylint_item(self, item: Dict[str, Any]) -> Dict[str, Any]:
         """Convertit un élément pylint en issue interne."""
-        # On peut filtrer certains types si on veut (par exemple ignorer les conventions si on les gère déjà)
-        # Pour l'instant on garde tout
         return {
             'line': item.get('line', 0),
             'column': item.get('column', 0),

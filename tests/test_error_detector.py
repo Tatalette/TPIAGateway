@@ -21,18 +21,20 @@ def test_pylint_detector_finds_issues(sample_file_with_pylint_issues):
     detector = PylintErrorDetector(parser)
     issues = detector.check()
 
-    # On doit trouver au moins unused-import et unused-variable
     symbols = [i['symbol'] for i in issues if i.get('symbol')]
     assert 'unused-import' in symbols
     assert 'unused-variable' in symbols
 
-def test_pylint_not_installed_graceful_failure(monkeypatch):
-    # Simuler l'absence de pylint en faisant échouer subprocess.run
+def test_pylint_not_installed_graceful_failure(monkeypatch, tmp_path):
+    # Créer un fichier valide pour éviter l'erreur de CodeParser
+    dummy_file = tmp_path / "dummy.py"
+    dummy_file.touch()
+
     def mock_run(*args, **kwargs):
         raise FileNotFoundError("pylint not found")
     monkeypatch.setattr(subprocess, 'run', mock_run)
 
-    parser = CodeParser("dummy.py")  # fichier inexistant mais pas utilisé
+    parser = CodeParser(str(dummy_file))
     detector = PylintErrorDetector(parser)
     issues = detector.check()
     assert len(issues) == 1
