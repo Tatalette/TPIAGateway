@@ -4,6 +4,7 @@ from core.parser import CodeParser
 from core.style_checker import StyleChecker
 from core.error_detector import PylintErrorDetector
 from knowledge.algorithm_advisor import AlgorithmAdvisor
+from knowledge.knowledge_builder import add_patterns_from_pdf
 
 def main():
     parser = argparse.ArgumentParser(description="Revue de code Python")
