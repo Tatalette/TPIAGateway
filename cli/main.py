@@ -11,7 +11,13 @@ def main():
     parser.add_argument("file", help="Fichier Python à analyser")
     parser.add_argument("--no-pylint", action="store_true", help="Désactiver l'analyse pylint")
     parser.add_argument("--no-algorithm", action="store_true", help="Désactiver l'analyse algorithmique")
+    parser.add_argument("--learn-pdf", help="Chemin vers un PDF pour enrichir la base de connaissances")
     args = parser.parse_args()
+
+    if args.learn_pdf:
+        print(f"Apprentissage à partir du PDF : {args.learn_pdf}")
+        new = add_patterns_from_pdf(args.learn_pdf)
+        print(f"{len(new)} nouveau(x) motif(s) ajouté(s) à la base.")
 
     if not Path(args.file).exists():
         print(f"Erreur : fichier {args.file} introuvable.")
