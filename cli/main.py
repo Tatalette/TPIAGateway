@@ -6,6 +6,7 @@ from core.error_detector import PylintErrorDetector
 from knowledge.algorithm_advisor import AlgorithmAdvisor
 
 def main():
+    
     parser = argparse.ArgumentParser(description="Revue de code Python")
     parser.add_argument("file", help="Fichier Python à analyser")
     parser.add_argument("--no-pylint", action="store_true", help="Désactiver l'analyse pylint")
@@ -15,7 +16,7 @@ def main():
     if not Path(args.file).exists():
         print(f"Erreur : fichier {args.file} introuvable.")
         return
-
+    
     code_parser = CodeParser(args.file)
     all_issues = []
 
