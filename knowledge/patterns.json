@@ -1,0 +1,793 @@
+[
+  {
+    "name": "tri_bulle",
+    "description": "Tri à bulles (implémentation naïve)",
+    "suggestion": "Utilisez la fonction native `sorted()` ou la méthode `list.sort()` qui sont implémentées en C et beaucoup plus rapides (Timsort, complexité O(n log n)).",
+    "explanation": "Le tri à bulles a une complexité moyenne de O(n²), ce qui le rend inefficace sur de grandes listes. Les algorithmes intégrés en Python sont optimisés et bien plus performants.",
+    "source": "Source interne"
+  },
+  {
+    "name": "recherche_lineaire",
+    "description": "Recherche linéaire dans une liste",
+    "suggestion": "Si la liste est triée, utilisez la recherche dichotomique (`bisect` module) pour une complexité O(log n) au lieu de O(n). Sinon, envisagez d'utiliser un ensemble (`set`) si vous faites plusieurs recherches.",
+    "explanation": "La recherche linéaire parcourt toute la liste, ce qui est inefficace pour de grandes données. Des structures comme les ensembles ou la recherche binaire peuvent considérablement améliorer les performances.",
+    "source": "Source interne"
+  },
+  {
+    "name": "recherche_dichotomique",
+    "description": "Recherche dichotomique (recherche binaire) probable",
+    "suggestion": "Votre implémentation de recherche binaire semble correcte. Cependant, vous pouvez utiliser le module `bisect` qui offre des fonctions optimisées : `bisect_left`, `bisect_right`, etc.",
+    "explanation": "La recherche dichotomique est efficace (O(log n)), mais l'utilisation du module `bisect` (implémenté en C) est encore plus rapide pour les listes triées.",
+    "source": "Source interne"
+  },
+  {
+    "name": "tri_rapide_maison",
+    "description": "Tri rapide (implémentation récursive personnelle)",
+    "suggestion": "Pour trier, préférez `sorted()` ou `list.sort()` qui sont plus rapides et évitent les problèmes de récursion profonde.",
+    "explanation": "Les tris récursifs maison en Python peuvent être lents et risquent de dépasser la limite de récursion pour de grandes listes. Les fonctions natives sont optimisées en C.",
+    "source": "Source interne"
+  },
+  {
+    "name": "algorithme_inconnu",
+    "description": "Algorithme détecté : optimisation",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne algorithme_inconnu avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "B.P.Flannery",
+    "description": "Algorithme détecté : algorithme, tri, optimisation",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne B.P.Flannery avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "dontd´ependleprobl`eme",
+    "description": "Algorithme détecté : algorithme, tri, optimisation",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne dontd´ependleprobl`eme avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "|A(e)|≤c(A)|δe|",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne |A(e)|≤c(A)|δe| avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "c’",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne c’ avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "siNestlatailleduprobl`eme(p.ex.nombred’inconnues)onpeutavoirdesalgorithmesenO(N),O(NlnN),O(N2),O(N!)",
+    "description": "Algorithme détecté : algorithme",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne siNestlatailleduprobl`eme(p.ex.nombred’inconnues)onpeutavoirdesalgorithmesenO(N),O(NlnN),O(N2),O(N!) avec des complexités ['O(N)', 'O(NlnN)', 'O(N2)', 'O(N!)'].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "GeorgesKOEPFLER:",
+    "description": "Algorithme détecté : optimisation",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne GeorgesKOEPFLER: avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Exemple2:D´eterminationdesracinesd’",
+    "description": "Algorithme détecté : tri, rapide",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Exemple2:D´eterminationdesracinesd’ avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "onobtientlesracinessuivantespour˜w:1,00000000010,095266145",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne onobtientlesracinessuivantespour˜w:1,00000000010,095266145 avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Calculdelatrajectoiredelafus´eeARIANE5",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Calculdelatrajectoiredelafus´eeARIANE5 avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "DanslerapportESA",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne DanslerapportESA avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "BetCdesmatricesrectangulaires",
+    "description": "Algorithme détecté : algorithme, tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne BetCdesmatricesrectangulaires avec des complexités ['O(n3)', 'O(nlog27)'].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Algorithme1.2(Strassen)Calculduproduitdesmatricescarr´eesd’ordren=2r",
+    "description": "Algorithme détecté : algorithme, tri, rapide, performance",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Algorithme1.2(Strassen)Calculduproduitdesmatricescarr´eesd’ordren=2r avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "onchercheraxminimisantAx−b2.Laderni`eresectionpr´esentedesm´ethodesit´erativespourlecasd’",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne onchercheraxminimisantAx−b2.Laderni`eresectionpr´esentedesm´ethodesit´erativespourlecasd’ avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "IetP1telquea11soitl’´el´ementdevaleurabsoluemaximaledanslapremi`erecolonne",
+    "description": "Algorithme détecté : algorithme, tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne IetP1telquea11soitl’´el´ementdevaleurabsoluemaximaledanslapremi`erecolonne avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": ".(ii)onpeutchoisirP1etP2defa¸con`acequea11soitl’´el´ementdevaleurabsoluemaximaledanstoutelamatrice",
+    "description": "Algorithme détecté : algorithme, tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne .(ii)onpeutchoisirP1etP2defa¸con`acequea11soitl’´el´ementdevaleurabsoluemaximaledanstoutelamatrice avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Siσ:{1,",
+    "description": "Algorithme détecté : algorithme, tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Siσ:{1, avec des complexités ['O(n2)'].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "orpourcelailfautd´eterminerδA/A,δb/betc(A)=AA−1.PourobtenirδAonutiliseleth´eor`emesuivantTh´eor`eme2.1.3Soit˜xlasolutioncalcul´eeetr=A˜x−bler´esidu",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne orpourcelailfautd´eterminerδA/A,δb/betc(A)=AA−1.PourobtenirδAonutiliseleth´eor`emesuivantTh´eor`eme2.1.3Soit˜xlasolutioncalcul´eeetr=A˜x−bler´esidu avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "DeplusilexisteunalgorithmedefactorisationenO(1",
+    "description": "Algorithme détecté : algorithme, tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne DeplusilexisteunalgorithmedefactorisationenO(1 avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "alorsAestsym´etriqued´eniepositivesietseulementsiBtABestsym´etriqued´eniepositive.3.UnematriceAestsym´etriqued´eniepositivesietseulementsiAt=Aettoutessesvaleurspropressontstrictementpositives.4.SiAestsym´etriqued´eniepositive",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne alorsAestsym´etriqued´eniepositivesietseulementsiBtABestsym´etriqued´eniepositive.3.UnematriceAestsym´etriqued´eniepositivesietseulementsiAt=Aettoutessesvaleurspropressontstrictementpositives.4.SiAestsym´etriqued´eniepositive avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Avecdesm´ethodesadapt´eesonpeutsouventam´eliorerlesperformancesdesalgorithmesdefactorisation",
+    "description": "Algorithme détecté : algorithme, tri, performance",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Avecdesm´ethodesadapt´eesonpeutsouventam´eliorerlesperformancesdesalgorithmesdefactorisation avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "onaHx=",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne onaHx= avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "UΣVt",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne UΣVt avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "deA.b)LesvaleurspropresdelamatriceAtAsontσ2i",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne deA.b)LesvaleurspropresdelamatriceAtAsontσ2i avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "σn",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne σn avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Onutilisealorsdesm´ethodesit´erativeso`ul’onarrˆetel’it´erationd`esquelapr´ecisiond´esir´eeestatteinte",
+    "description": "Algorithme détecté : algorithme, tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Onutilisealorsdesm´ethodesit´erativeso`ul’onarrˆetel’it´erationd`esquelapr´ecisiond´esir´eeestatteinte avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "resp.−U",
+    "description": "Algorithme détecté : algorithme, tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne resp.−U avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "i+1aijx(k)jProposition2.3.4SilamatriceAest`adiagonalestrictementdominante",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne i+1aijx(k)jProposition2.3.4SilamatriceAest`adiagonalestrictementdominante avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "D→Rp",
+    "description": "Algorithme détecté : optimisation",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne D→Rp avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "f=infx∈Cf(x).Ona",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne f=infx∈Cf(x).Ona avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "x)=",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne x)= avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "i.e.x∈Rn",
+    "description": "Algorithme détecté : optimisation",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne i.e.x∈Rn avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Danscecaslafonctioncoˆutestlin´eairef(x)=<c",
+    "description": "Algorithme détecté : optimisation",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Danscecaslafonctioncoˆutestlin´eairef(x)=<c avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "x>−bipour1≤i≤p",
+    "description": "Algorithme détecté : algorithme, tri, optimisation",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne x>−bipour1≤i≤p avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "sipourtout(x",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne sipourtout(x avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "y)∈C2,x=y",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne y)∈C2,x=y avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "y)∈domfetpourtoutt∈]0,1[f(tx+(1−t)y)≤max(f(x),f(y)).Onditquefeststrictementquasi",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne y)∈domfetpourtoutt∈]0,1[f(tx+(1−t)y)≤max(f(x),f(y)).Onditquefeststrictementquasi avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "CHAPITRE3.OPTIMISATIONCONTINUESANSCONTRAINTES",
+    "description": "Algorithme détecté : optimisation",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne CHAPITRE3.OPTIMISATIONCONTINUESANSCONTRAINTES avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Exemples:1.LafonctionindicatriceICd’",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Exemples:1.LafonctionindicatriceICd’ avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "C→RconvexesurΩ,alors∇f(a)=0⇔aestunminimumglobal",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne C→RconvexesurΩ,alors∇f(a)=0⇔aestunminimumglobal avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "x=−P−1q",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne x=−P−1q avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "x∈ker(P)−P+q",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne x∈ker(P)−P+q avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "D→Rcontinueetquasi-convexe",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne D→Rcontinueetquasi-convexe avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "orenutilisantlad´ecompositionLU",
+    "description": "Algorithme détecté : algorithme, tri, recherche",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne orenutilisantlad´ecompositionLU avec des complexités ['O(n2)', 'O(n3)', 'O(n2)', 'O(n3)'].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Soitxtelquelescoordonn´eesdey=Bx",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Soitxtelquelescoordonn´eesdey=Bx avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "∂xk(x)=ni=1sibik",
+    "description": "Algorithme détecté : algorithme, rapide",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne ∂xk(x)=ni=1sibik avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "it´e-rationsonresteO(n2),cequiestn´egligeableparrapportaucoˆutdelad´ecompositionLU.SurlapagesuivanteonproposeunprogrammeScilab1quicomparenotreimpl´ementationauxfonctionscondetrcondinclusesdansScilab",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne it´e-rationsonresteO(n2),cequiestn´egligeableparrapportaucoˆutdelad´ecompositionLU.SurlapagesuivanteonproposeunprogrammeScilab1quicomparenotreimpl´ementationauxfonctionscondetrcondinclusesdansScilab avec des complexités ['O(n2)', 'O(n2)'].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "E)5y",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne E)5y avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "i.e.d∈Rn\\{0}tellequed/dsoitunedirectionnormalis´eedeplusgrandedescente.2)Apr`esavoirx´edilfautd´eterminerunpasσ«convenable»:onsouhaiteavoirunedescentesignicativedef(x(k))versf(x(k+1)),nepasrestertroppr`esdex(k),nepasmettretropdetemps`atrouverσ",
+    "description": "Algorithme détecté : algorithme",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne i.e.d∈Rn\\{0}tellequed/dsoitunedirectionnormalis´eedeplusgrandedescente.2)Apr`esavoirx´edilfautd´eterminerunpasσ«convenable»:onsouhaiteavoirunedescentesignicativedef(x(k))versf(x(k+1)),nepasrestertroppr`esdex(k),nepasmettretropdetemps`atrouverσ avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "3.2.ALGORITHMESDEMINIMISATIONSANSCONTRAINTE",
+    "description": "Algorithme détecté : algorithme",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne 3.2.ALGORITHMESDEMINIMISATIONSANSCONTRAINTE avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "ilexisteuneconstanteC∈R∗+telleque",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne ilexisteuneconstanteC∈R∗+telleque avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Sir=2onauneconvergencequadratique",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Sir=2onauneconvergencequadratique avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "x−log10(C)alorsx(k+1)arfoisplusded´ecimalesexactesquex(k).Silimk→+∞x(k+1)−",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne x−log10(C)alorsx(k+1)arfoisplusded´ecimalesexactesquex(k).Silimk→+∞x(k+1)− avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "comme0",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne comme0 avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "onsupposequefestminor´eesur{x+σd|σ≥0}.Alors",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne onsupposequefestminor´eesur{x+σd|σ≥0}.Alors avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Algorithme3.4(Descentedegradient)choisirx(0)∈domfetposerk=0tantque∇f(x(k))>εd(k)=−∇f(x(k))d´eterminerσk>0x(k+1)=x(k)+σkd(k)k=k+1Grˆaceaucorollaire3.2.1lam´ethodededescentedugradientestglobalementconvergente",
+    "description": "Algorithme détecté : algorithme, optimisation",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Algorithme3.4(Descentedegradient)choisirx(0)∈domfetposerk=0tantque∇f(x(k))>εd(k)=−∇f(x(k))d´eterminerσk>0x(k+1)=x(k)+σkd(k)k=k+1Grˆaceaucorollaire3.2.1lam´ethodededescentedugradientestglobalementconvergente avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "x2Q=1−∇f(x(k))42",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne x2Q=1−∇f(x(k))42 avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "o`uc2(Q)=λn/λ1.Ainsi",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne o`uc2(Q)=λn/λ1.Ainsi avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "`al’´etapek",
+    "description": "Algorithme détecté : algorithme, recherche",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne `al’´etapek avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "x;(ii)lam´ethodedeNewtonestd’",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne x;(ii)lam´ethodedeNewtonestd’ avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "onauneconvergencetr`esrapide",
+    "description": "Algorithme détecté : algorithme, tri, rapide",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne onauneconvergencetr`esrapide avec des complexités ['O(n2)'].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "A−1b",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne A−1b avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Posonsφ(σ)=f(x+σd),alorsφ′(σ)=0pourσ=−r(x)td",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Posonsφ(σ)=f(x+σd),alorsφ′(σ)=0pourσ=−r(x)td avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Th´eor`eme3.2.4Soitx(k)=",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Th´eor`eme3.2.4Soitx(k)= avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "x",
+    "description": "Algorithme détecté : algorithme",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne x avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "espacedeKrylovKk+1(A",
+    "description": "Algorithme détecté : algorithme, tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne espacedeKrylovKk+1(A avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "x2A≤minPk∈R[X]max1≤i≤n[1+λiPk(λi)]2x(0)−",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne x2A≤minPk∈R[X]max1≤i≤n[1+λiPk(λi)]2x(0)− avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "admetquervaleurspropresdistinctes0",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne admetquervaleurspropresdistinctes0 avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "siλ1≈1≈λn−m<<λn−m+1,onaλn−m−λ1≈2εetλn−m+λ1≈2,d’o`ux(m+1)−",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne siλ1≈1≈λn−m<<λn−m+1,onaλn−m−λ1≈2εetλn−m+λ1≈2,d’o`ux(m+1)− avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "CxancavecCtellequeleconditionnementdelamatriceC−tAC−1soitmeilleurqueceluideA.",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne CxancavecCtellequeleconditionnementdelamatriceC−tAC−1soitmeilleurqueceluideA. avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Casnonlin´eairePourpouvoirappliquerl’",
+    "description": "Algorithme détecté : algorithme",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Casnonlin´eairePourpouvoirappliquerl’ avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "f(x)=1",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne f(x)=1 avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "∂xn(x)∈M(m",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne ∂xn(x)∈M(m avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Onnoteǫj=yj−φ(x",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Onnoteǫj=yj−φ(x avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Remarques:1.Laconstanteγ>0estunminimiseuruniformedesvaleurssinguli`eresdeJ(x):0",
+    "description": "Algorithme détecté : algorithme",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Remarques:1.Laconstanteγ>0estunminimiseuruniformedesvaleurssinguli`eresdeJ(x):0 avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "2J(x)d+r(x)22,avecd≤∆.(3.9)Supposonsquel’onsached´eterminerlasolutionde(3.9),ilfautenpluspouvoird´eter-miner,`achaqueit´erationlavaleurde∆.Pourcel`aonvaconsid´ererlerapportdelar´eductionvraieetdelar´eductiondueaumod`ele",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne 2J(x)d+r(x)22,avecd≤∆.(3.9)Supposonsquel’onsached´eterminerlasolutionde(3.9),ilfautenpluspouvoird´eter-miner,`achaqueit´erationlavaleurde∆.Pourcel`aonvaconsid´ererlerapportdelar´eductionvraieetdelar´eductiondueaumod`ele avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "∆k+1=min(2∆k,∆)sinon∆k+1=∆ksiρk>ηalorsx(k+1)=x(k)+d(k)sinonx(k+1)=x(k)k=k+1Lasolutionde(3.9)estcaract´eris´eegrˆaceauLemme3.3.1LevecteurdLMestsolutiondusous-probl`ememind1",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne ∆k+1=min(2∆k,∆)sinon∆k+1=∆ksiρk>ηalorsx(k+1)=x(k)+d(k)sinonx(k+1)=x(k)k=k+1Lasolutionde(3.9)estcaract´eris´eegrˆaceauLemme3.3.1LevecteurdLMestsolutiondusous-probl`ememind1 avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Onaalorslimk→+∞J(x(k))tr(x(k))=0",
+    "description": "Algorithme détecté : algorithme",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Onaalorslimk→+∞J(x(k))tr(x(k))=0 avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "alors:(αu+βv)∗=αu∗+βv∗;(u∗)∗=u;(u◦v)∗=v∗",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne alors:(αu+βv)∗=αu∗+βv∗;(u∗)∗=u;(u◦v)∗=v∗ avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "◦u∗=IdE",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne ◦u∗=IdE avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "◦",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne ◦ avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "PropositionA.1.3(´Ecriturematricielle)Soit(E,<.,.>)unespaceeuclidienetB={e1,",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne PropositionA.1.3(´Ecriturematricielle)Soit(E,<.,.>)unespaceeuclidienetB={e1, avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "onaS=In",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne onaS=In avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Lecontextepermetdesavoirsionaaaire`aunenormedevecteuroudematrice",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Lecontextepermetdesavoirsionaaaire`aunenormedevecteuroudematrice avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "alors1.A1=At∞;2.A2=At2;3.SiUestorthogonale,UA2=AU2=At2;4.SiAestnormale,A2=ρ(A)Casparticuliers",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne alors1.A1=At∞;2.A2=At2;3.SiUestorthogonale,UA2=AU2=At2;4.SiAestnormale,A2=ρ(A)Casparticuliers avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "O.2.SiIn−Aestunematricesinguli`ere",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne O.2.SiIn−Aestunematricesinguli`ere avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "O",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne O avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Onditquefestdi´erentiableena∈Ωs’",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Onditquefestdi´erentiableena∈Ωs’ avec des complexités ['o(\\ue06bu\\ue06b)'].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "∂xn(a)∂f2",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne ∂xn(a)∂f2 avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "∂x1(a)∂f2",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne ∂x1(a)∂f2 avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "OnditaussiquelegradientestperpendiculaireauxlignesdeniveauLf(α)={x∈Rn/f(x)=α}.Si∇f(a)=O",
+    "description": "Algorithme détecté : algorithme",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne OnditaussiquelegradientestperpendiculaireauxlignesdeniveauLf(α)={x∈Rn/f(x)=α}.Si∇f(a)=O avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "etlocalementlafonctionestplate",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne etlocalementlafonctionestplate avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Onditquefestcontinˆumentdi´erentiable",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Onditquefestcontinˆumentdi´erentiable avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "dgf(a)◦",
+    "description": "Algorithme détecté : ",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne dgf(a)◦ avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "C’",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne C’ avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Optimisation_algo",
+    "description": "Algorithme détecté : optimisation",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Optimisation_algo avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Algorithme_algo",
+    "description": "Algorithme détecté : algorithme, tri, optimisation",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Algorithme_algo avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Tri_algo",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Tri_algo avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Optimisationetalgoritmique-",
+    "description": "Algorithme détecté : optimisation",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Optimisationetalgoritmique- avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "D´efinition2.2.2SoitAunematricedetaille(m",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne D´efinition2.2.2SoitAunematricedetaille(m avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "r)inversibleetlesmatricesU1etV1ontrcolonnes",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne r)inversibleetlesmatricesU1etV1ontrcolonnes avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "obtenirunematriceRpourlaquelleρ(R)estpetit.2.3.1M´ethodedeJacobiOnd´ecomposeAenA",
+    "description": "Algorithme détecté : algorithme, tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne obtenirunematriceRpourlaquelleρ(R)estpetit.2.3.1M´ethodedeJacobiOnd´ecomposeAenA avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "Unprobl`emed’optimisationnonlin´eairesurRnsepr´esentesouslaformestandard:Minimiserf(x)souslaconditionx∈C={x∈D|g(x)≤0,h(x)=0}.(3.2)Lafonction(oufonctionnelle)festappel´eecrit`ere",
+    "description": "Algorithme détecté : optimisation",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne Unprobl`emed’optimisationnonlin´eairesurRnsepr´esentesouslaformestandard:Minimiserf(x)souslaconditionx∈C={x∈D|g(x)≤0,h(x)=0}.(3.2)Lafonction(oufonctionnelle)festappel´eecrit`ere avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "tencedepointsoptimauxquel’onpeutseposerlaquestiond’appliquerunalgorithmenum´eriquepourd´eterminercessolutions.3.1.2EnsemblesetfonctionsconvexesEnoptimisationonobtientdesr´esultatsfortsd’",
+    "description": "Algorithme détecté : algorithme, tri, optimisation",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne tencedepointsoptimauxquel’onpeutseposerlaquestiond’appliquerunalgorithmenum´eriquepourd´eterminercessolutions.3.1.2EnsemblesetfonctionsconvexesEnoptimisationonobtientdesr´esultatsfortsd’ avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "onvapr´esenterl’algorithmedeHagerquidonneuneborneinf´erieuredelanorme.1d’unematrice",
+    "description": "Algorithme détecté : algorithme, tri, recherche",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne onvapr´esenterl’algorithmedeHagerquidonneuneborneinf´erieuredelanorme.1d’unematrice avec des complexités ['O(n2)', 'O(n3)', 'O(n2)', 'O(n3)'].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "v´erief(xk+1)>f(xk).L’algorithmedeHagerestunexempled’unem´ethodequi«remontedansladirectiondugradient»et",
+    "description": "Algorithme détecté : algorithme, rapide",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne v´erief(xk+1)>f(xk).L’algorithmedeHagerestunexempled’unem´ethodequi«remontedansladirectiondugradient»et avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "onminimiselafonctionσ−→f(x(k)+σek),pourσ∈R.Cettem´ethodeestvoisinedecelledelaplusfortedescenteen.1,mais±ekn’estpasn´ecessairementunedirectiondedescenteenx(k).Cetalgorithmeesttr`essimplemaisonnepeutpasgarantirlaconvergenceversunpointstationnaireetmˆemesiononaconvergencecelle-cipeutˆetretr`eslente",
+    "description": "Algorithme détecté : algorithme, recherche",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne onminimiselafonctionσ−→f(x(k)+σek),pourσ∈R.Cettem´ethodeestvoisinedecelledelaplusfortedescenteen.1,mais±ekn’estpasn´ecessairementunedirectiondedescenteenx(k).Cetalgorithmeesttr`essimplemaisonnepeutpasgarantirlaconvergenceversunpointstationnaireetmˆemesiononaconvergencecelle-cipeutˆetretr`eslente avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "obtenuapr`eslakeit´erationdel’algorithmedugradientconjugu´elin´eaireavecσk",
+    "description": "Algorithme détecté : algorithme",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne obtenuapr`eslakeit´erationdel’algorithmedugradientconjugu´elin´eaireavecσk avec des complexités [].",
+    "source": "PDF analysé"
+  },
+  {
+    "name": "UtU.Lespropri´et´esdelapropositionA.1.2setraduisentmatriciellementdefa¸con´evidente:(Ut)t",
+    "description": "Algorithme détecté : tri",
+    "suggestion": "Consultez la section correspondante dans le PDF pour optimiser votre code.",
+    "explanation": "Le PDF mentionne UtU.Lespropri´et´esdelapropositionA.1.2setraduisentmatriciellementdefa¸con´evidente:(Ut)t avec des complexités [].",
+    "source": "PDF analysé"
+  }
+]

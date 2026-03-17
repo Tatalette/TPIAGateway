@@ -1,59 +1,70 @@
+# cli/main.py
 import argparse
 from pathlib import Path
 from core.parser import CodeParser
 from core.style_checker import StyleChecker
 from core.error_detector import PylintErrorDetector
 from knowledge.algorithm_advisor import AlgorithmAdvisor
+from knowledge.storage import load_patterns, save_patterns
 from knowledge.knowledge_builder import add_patterns_from_pdf
 
 def main():
+    # Charger les patterns au lancement
+    load_patterns()
+
     parser = argparse.ArgumentParser(description="Revue de code Python")
-    parser.add_argument("file", help="Fichier Python à analyser")
+    parser.add_argument("file", nargs="?", help="Fichier Python à analyser")
     parser.add_argument("--no-pylint", action="store_true", help="Désactiver l'analyse pylint")
     parser.add_argument("--no-algorithm", action="store_true", help="Désactiver l'analyse algorithmique")
     parser.add_argument("--learn-pdf", help="Chemin vers un PDF pour enrichir la base de connaissances")
     args = parser.parse_args()
 
     if args.learn_pdf:
-        print(f"Apprentissage à partir du PDF : {args.learn_pdf}")
+        if not Path(args.learn_pdf).exists():
+            print(f"Erreur : fichier PDF {args.learn_pdf} introuvable.")
+            return
         new = add_patterns_from_pdf(args.learn_pdf)
-        print(f"{len(new)} nouveau(x) motif(s) ajouté(s) à la base.")
+        print(f"{len(new)} nouveau(x) motif(s) ajouté(s).")
+        # Option : ne pas faire d'analyse si seul --learn-pdf est fourni
+        if not args.file:
+            return
 
-    if not Path(args.file).exists():
-        print(f"Erreur : fichier {args.file} introuvable.")
-        return
+    if args.file:
+        if not Path(args.file).exists():
+            print(f"Erreur : fichier {args.file} introuvable.")
+            return
 
-    code_parser = CodeParser(args.file)
-    all_issues = []
+        code_parser = CodeParser(args.file)
+        all_issues = []
 
-    # Style checker (retourne des objets Issue)
-    style_checker = StyleChecker(code_parser)
-    style_issues = style_checker.check_all()
-    all_issues.extend([issue.to_dict() for issue in style_issues])
+        # Style checker
+        style_checker = StyleChecker(code_parser)
+        style_issues = style_checker.check_all()
+        all_issues.extend([issue.to_dict() for issue in style_issues])
 
-    # Pylint error detector (retourne des objets Issue maintenant)
-    if not args.no_pylint:
-        pylint_detector = PylintErrorDetector(code_parser)
-        pylint_issues = pylint_detector.check()
-        all_issues.extend([issue.to_dict() for issue in pylint_issues])  # conversion en dict
+        # Pylint error detector
+        if not args.no_pylint:
+            pylint_detector = PylintErrorDetector(code_parser)
+            pylint_issues = pylint_detector.check()
+            all_issues.extend([issue.to_dict() for issue in pylint_issues])
 
-    # Algorithm advisor
-    if not args.no_algorithm:
-        algorithm_advisor = AlgorithmAdvisor(code_parser)
-        algorithm_issues = algorithm_advisor.analyze()
-        all_issues.extend([issue.to_dict() for issue in algorithm_issues])
+        # Algorithm advisor
+        if not args.no_algorithm:
+            algorithm_advisor = AlgorithmAdvisor(code_parser)
+            algorithm_issues = algorithm_advisor.analyze()
+            all_issues.extend([issue.to_dict() for issue in algorithm_issues])
 
-    if all_issues:
-        print(f"{len(all_issues)} problème(s) détecté(s) :\n")
-        for issue in all_issues:
-            line_info = f"ligne {issue['line']}" if issue.get('line') else "fichier"
-            print(f"- {line_info} : {issue['message']}")
-            if 'suggestion' in issue and issue['suggestion']:
-                print(f"  Suggestion : {issue['suggestion']}")
-            if 'explanation' in issue:
-                print(f"  Explication : {issue['explanation']}")
-    else:
-        print("Aucun problème détecté.")
+        if all_issues:
+            print(f"{len(all_issues)} problème(s) détecté(s) :\n")
+            for issue in all_issues:
+                line_info = f"ligne {issue['line']}" if issue.get('line') else "fichier"
+                print(f"- {line_info} : {issue['message']}")
+                if 'suggestion' in issue and issue['suggestion']:
+                    print(f"  Suggestion : {issue['suggestion']}")
+                if 'explanation' in issue:
+                    print(f"  Explication : {issue['explanation']}")
+        else:
+            print("Aucun problème détecté.")
 
 if __name__ == "__main__":
     main()
