@@ -55,7 +55,7 @@ class CodeParser:
     
     # Exemple de méthode utilitaire pour vérifier les noms (sera utilisée par style_checker)
     def get_all_names(self) -> List[Dict[str, Any]]:
-        """Retourne tous les noms (variables, fonctions, classes) avec leur type et ligne."""
+        """Retourne tous les noms (variables, fonctions, classes, attributs) avec leur type et ligne."""
         names = []
         for node in ast.walk(self.tree):
             if isinstance(node, ast.Name):
@@ -63,6 +63,12 @@ class CodeParser:
                     'id': node.id,
                     'lineno': node.lineno,
                     'ctx': type(node.ctx).__name__  # Load, Store, Del
+                })
+            elif isinstance(node, ast.Attribute):
+                names.append({
+                    'id': node.attr,
+                    'lineno': node.lineno,
+                    'type': 'attribute'
                 })
             elif isinstance(node, ast.FunctionDef):
                 names.append({
