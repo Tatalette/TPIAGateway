@@ -1,6 +1,9 @@
 # knowledge/algorithm_advisor.py
+import ast
 from typing import List, Dict, Any
 from core.parser import CodeParser
+from core.issue import Issue
+from knowledge.knowledge_base import PATTERNS, AlgorithmPattern
 from knowledge.matcher import AlgorithmMatcher
 
 class AlgorithmAdvisor:
@@ -9,21 +12,21 @@ class AlgorithmAdvisor:
     def __init__(self, parser: CodeParser):
         self.parser = parser
         self.matcher = AlgorithmMatcher()
-        self.issues = []
+        self.issues: List[Issue] = []
 
-    def analyze(self) -> List[Dict[str, Any]]:
+    def analyze(self) -> List[Issue]:
         """Parcourt toutes les fonctions et détecte les motifs algorithmiques."""
         functions = self.parser.get_functions()
         for func in functions:
             matches = self.matcher.match_function(func)
             for pattern in matches:
-                self.issues.append({
-                    'line': func.lineno,
-                    'type': 'algorithm',
-                    'pattern': pattern.name,
-                    'message': f"Fonction '{func.name}' : {pattern.description} détecté.",
-                    'suggestion': pattern.suggestion,
-                    'explanation': pattern.explanation,
-                    'source': pattern.source
-                })
+                self.issues.append(Issue(
+                    line=func.lineno,
+                    issue_type='algorithm',
+                    message=f"Fonction '{func.name}' : {pattern.description} détecté.",
+                    suggestion=pattern.suggestion,
+                    explanation=pattern.explanation,
+                    pattern=pattern.name,
+                    source=pattern.source
+                ))
         return self.issues

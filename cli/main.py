@@ -24,17 +24,17 @@ def main():
     style_issues = style_checker.check_all()
     all_issues.extend([issue.to_dict() for issue in style_issues])
 
-    # Pylint error detector (retourne des dicts)
+    # Pylint error detector (retourne des objets Issue maintenant)
     if not args.no_pylint:
         pylint_detector = PylintErrorDetector(code_parser)
         pylint_issues = pylint_detector.check()
-        all_issues.extend(pylint_issues)  # déjà des dicts
+        all_issues.extend([issue.to_dict() for issue in pylint_issues])  # conversion en dict
 
-    # Algorithm advisor (retourne des dicts)
+    # Algorithm advisor
     if not args.no_algorithm:
         algorithm_advisor = AlgorithmAdvisor(code_parser)
         algorithm_issues = algorithm_advisor.analyze()
-        all_issues.extend(algorithm_issues)  # déjà des dicts
+        all_issues.extend([issue.to_dict() for issue in algorithm_issues])
 
     if all_issues:
         print(f"{len(all_issues)} problème(s) détecté(s) :\n")

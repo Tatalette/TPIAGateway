@@ -21,7 +21,22 @@ def test_pylint_detector_finds_issues(sample_file_with_pylint_issues):
     detector = PylintErrorDetector(parser)
     issues = detector.check()
 
-    symbols = [i['symbol'] for i in issues if i.get('symbol')]
+    # Vérifier qu'on a bien des issues
+    assert len(issues) > 0, "Aucune issue retournée par pylint"
+
+    # Extraire les symboles
+    symbols = []
+    for issue in issues:
+        if issue.extra.get('symbol'):
+            symbols.append(issue.extra['symbol'])
+
+    # Afficher pour débogage en cas d'échec
+    if 'unused-import' not in symbols:
+        print("\nIssues reçues :")
+        for issue in issues:
+            print(f"  {issue.line}: {issue.message} (symbol: {issue.extra.get('symbol')})")
+        print(f"Symbols extraits : {symbols}")
+
     assert 'unused-import' in symbols
     assert 'unused-variable' in symbols
 
@@ -38,4 +53,4 @@ def test_pylint_not_installed_graceful_failure(monkeypatch, tmp_path):
     detector = PylintErrorDetector(parser)
     issues = detector.check()
     assert len(issues) == 1
-    assert issues[0]['type'] == 'pylint_not_found'
+    assert issues[0].type == 'pylint_not_found'
