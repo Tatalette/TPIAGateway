@@ -6,7 +6,6 @@ from core.error_detector import PylintErrorDetector
 from knowledge.algorithm_advisor import AlgorithmAdvisor
 
 def main():
-    
     parser = argparse.ArgumentParser(description="Revue de code Python")
     parser.add_argument("file", help="Fichier Python à analyser")
     parser.add_argument("--no-pylint", action="store_true", help="Désactiver l'analyse pylint")
@@ -16,26 +15,26 @@ def main():
     if not Path(args.file).exists():
         print(f"Erreur : fichier {args.file} introuvable.")
         return
-    
+
     code_parser = CodeParser(args.file)
     all_issues = []
 
-    # Style checker
+    # Style checker (retourne des objets Issue)
     style_checker = StyleChecker(code_parser)
     style_issues = style_checker.check_all()
-    all_issues.extend(style_issues)
+    all_issues.extend([issue.to_dict() for issue in style_issues])
 
-    # Pylint error detector
+    # Pylint error detector (retourne des dicts)
     if not args.no_pylint:
         pylint_detector = PylintErrorDetector(code_parser)
         pylint_issues = pylint_detector.check()
-        all_issues.extend(pylint_issues)
+        all_issues.extend(pylint_issues)  # déjà des dicts
 
-    # Algorithm advisor
+    # Algorithm advisor (retourne des dicts)
     if not args.no_algorithm:
         algorithm_advisor = AlgorithmAdvisor(code_parser)
         algorithm_issues = algorithm_advisor.analyze()
-        all_issues.extend(algorithm_issues)
+        all_issues.extend(algorithm_issues)  # déjà des dicts
 
     if all_issues:
         print(f"{len(all_issues)} problème(s) détecté(s) :\n")
@@ -48,3 +47,6 @@ def main():
                 print(f"  Explication : {issue['explanation']}")
     else:
         print("Aucun problème détecté.")
+
+if __name__ == "__main__":
+    main()
