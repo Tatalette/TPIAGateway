@@ -3,13 +3,16 @@ import ast
 from typing import Callable, List, Dict, Any
 
 class AlgorithmPattern:
-    def __init__(self, name: str, description: str, detector: Callable, suggestion: str, explanation: str, source: str = ""):
+    def __init__(self, name: str, description: str, detector: Callable,
+                 suggestion: str, explanation: str, source: str = "",
+                 keywords: List[str] = None):
         self.name = name
         self.description = description
         self.detector = detector
         self.suggestion = suggestion
         self.explanation = explanation
         self.source = source
+        self.keywords = keywords or []
 
 # Fonctions de détection
 

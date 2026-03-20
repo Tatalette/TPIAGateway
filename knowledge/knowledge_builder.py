@@ -4,6 +4,7 @@ from knowledge.storage import save_patterns
 from typing import List
 from knowledge.nlp_extractor import extract_from_blocks
 from knowledge.nlp_extractor import ALGO_KEYWORDS
+from knowledge.detectors import make_keyword_detector
 
 def build_pattern_from_info(info: dict) -> AlgorithmPattern:
     """Construit un objet AlgorithmPattern à partir des infos NLP, avec un nom plus pertinent."""
@@ -34,13 +35,18 @@ def build_pattern_from_info(info: dict) -> AlgorithmPattern:
     explanation = f"Le PDF mentionne {name} avec des complexités {info['complexities']}."
     source = "PDF analysé"
     detector = lambda func: False  # factice pour l'instant
+        # ... (sélection du nom comme avant)
+    keywords = info.get("keywords", [])
+    # Créer un détecteur basé sur ces mots-clés
+    detector = make_keyword_detector(keywords)
     return AlgorithmPattern(
         name=name,
         description=description,
         detector=detector,
         suggestion=suggestion,
         explanation=explanation,
-        source=source
+        source=source,
+        keywords=keywords
     )
 
 

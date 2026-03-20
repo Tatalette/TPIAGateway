@@ -14,19 +14,15 @@ class AlgorithmAdvisor:
         self.matcher = AlgorithmMatcher()
         self.issues: List[Issue] = []
 
-    def analyze(self) -> List[Issue]:
-        """Parcourt toutes les fonctions et détecte les motifs algorithmiques."""
-        functions = self.parser.get_functions()
-        for func in functions:
-            matches = self.matcher.match_function(func)
-            for pattern in matches:
-                self.issues.append(Issue(
-                    line=func.lineno,
-                    issue_type='algorithm',
-                    message=f"Fonction '{func.name}' : {pattern.description} détecté.",
-                    suggestion=pattern.suggestion,
-                    explanation=pattern.explanation,
-                    pattern=pattern.name,
-                    source=pattern.source
-                ))
-        return self.issues
+    def analyze(self):
+    functions = self.parser.get_functions()
+    for func in functions:
+        # Extraire le texte de la fonction depuis self.parser.source
+        # On peut utiliser ast.get_source_segment(self.parser.source, func)
+        # Pour Python >= 3.8
+        func_source = ast.get_source_segment(self.parser.source, func)
+        if not func_source:
+            continue
+        matches = self.matcher.match_function(func, func_source)
+        for pattern in matches:
+            self.issues.append(...)
