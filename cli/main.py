@@ -20,11 +20,12 @@ from knowledge.knowledge_builder import add_patterns_from_pdf
 
 # Import de l'indexeur ACEOB
 try:
-    from ai.optimized_indexer import CodeOptimizationIndexer
+    from ai.code_indexer import CodeOptimizationIndexer
     INDEXER_AVAILABLE = True
 except ImportError:
     INDEXER_AVAILABLE = False
-    print("Indexeur optimisé non disponible.", file=sys.stderr)
+    CodeOptimizationIndexer = None
+    print("Indexeur TF-IDF non disponible.", file=sys.stderr)
 
 DEFAULT_CONFIG = {
     "style": {
