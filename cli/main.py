@@ -1,4 +1,3 @@
-# cli/main.py
 #!/usr/bin/env python3
 # cli/main.py
 import argparse
@@ -10,7 +9,7 @@ from typing import List, Dict, Any, Optional
 try:
     import yaml
 except ImportError:
-    yaml = None  # optionnel
+    yaml = None
 
 from core.parser import CodeParser
 from core.style_checker import StyleChecker
@@ -18,6 +17,14 @@ from core.error_detector import PylintErrorDetector
 from knowledge.algorithm_advisor import AlgorithmAdvisor
 from knowledge.storage import load_patterns, save_patterns
 from knowledge.knowledge_builder import add_patterns_from_pdf
+
+# Import de l'indexeur ACEOB
+try:
+    from ai.optimized_indexer import CodeOptimizationIndexer
+    INDEXER_AVAILABLE = True
+except ImportError:
+    INDEXER_AVAILABLE = False
+    print("Indexeur optimisé non disponible.", file=sys.stderr)
 
 DEFAULT_CONFIG = {
     "style": {
@@ -28,7 +35,7 @@ DEFAULT_CONFIG = {
     },
     "pylint": {
         "enabled": True,
-        "ignore": []   # codes à ignorer
+        "ignore": []
     },
     "algorithm": {
         "enabled": True,
@@ -37,7 +44,6 @@ DEFAULT_CONFIG = {
 }
 
 def load_config(config_path: str = "config.yaml") -> Dict:
-    """Charge la configuration depuis config.yaml si disponible."""
     config = DEFAULT_CONFIG.copy()
     if not Path(config_path).exists():
         return config
@@ -48,7 +54,6 @@ def load_config(config_path: str = "config.yaml") -> Dict:
         with open(config_path, 'r') as f:
             user_config = yaml.safe_load(f)
         if user_config:
-            # fusion simple
             for key, value in user_config.items():
                 if key in config:
                     if isinstance(config[key], dict):
@@ -62,7 +67,6 @@ def load_config(config_path: str = "config.yaml") -> Dict:
     return config
 
 def collect_py_files(paths: List[str], recursive: bool) -> List[Path]:
-    """Collecte tous les fichiers .py à analyser."""
     py_files = []
     for p in paths:
         path = Path(p)
@@ -77,7 +81,6 @@ def collect_py_files(paths: List[str], recursive: bool) -> List[Path]:
     return py_files
 
 def analyze_file(filepath: Path, config: Dict, no_pylint: bool, no_algorithm: bool) -> List[Dict]:
-    """Analyse un fichier et retourne la liste des issues (dict)."""
     try:
         parser = CodeParser(str(filepath))
     except FileNotFoundError:
@@ -90,9 +93,7 @@ def analyze_file(filepath: Path, config: Dict, no_pylint: bool, no_algorithm: bo
     # Style
     style_checker = StyleChecker(parser)
     style_issues = style_checker.check_all()
-    # Filtrer selon la config (si nécessaire)
     for issue in style_issues:
-        # On pourrait ignorer certains types selon config
         issues.append(issue.to_dict())
 
     # Pylint
@@ -114,7 +115,6 @@ def analyze_file(filepath: Path, config: Dict, no_pylint: bool, no_algorithm: bo
     return issues
 
 def output_console(results: List[Dict[str, Any]]):
-    """Affiche les résultats sur la console."""
     total_issues = 0
     for result in results:
         file_issues = result['issues']
@@ -132,7 +132,6 @@ def output_console(results: List[Dict[str, Any]]):
     print(f"\nTotal : {total_issues} problème(s) détecté(s)")
 
 def output_json(results: List[Dict[str, Any]], output_file: Optional[str]):
-    """Écrit les résultats au format JSON."""
     data = {
         "summary": {
             "total_files": len(results),
@@ -162,9 +161,10 @@ def main():
     parser.add_argument("--no-pylint", action="store_true", help="Désactiver l'analyse pylint")
     parser.add_argument("--no-algorithm", action="store_true", help="Désactiver l'analyse algorithmique")
     parser.add_argument("--learn-pdf", help="Chemin vers un PDF pour enrichir la base de connaissances")
+    parser.add_argument("--suggest", action="store_true", help="Activer les suggestions d'optimisation basées sur ACEOB")
     args = parser.parse_args()
 
-    # Si on a un PDF à apprendre, on le traite d'abord
+    # Gestion de l'apprentissage PDF
     if args.learn_pdf:
         if not Path(args.learn_pdf).exists():
             print(f"Erreur : fichier PDF {args.learn_pdf} introuvable.", file=sys.stderr)
@@ -174,22 +174,52 @@ def main():
         if not args.paths:
             return
 
-    # Collecter les fichiers Python
+    # Collecte des fichiers Python
     py_files = collect_py_files(args.paths, args.recursive)
     if not py_files:
         print("Aucun fichier Python trouvé.", file=sys.stderr)
         sys.exit(0)
 
-    # Analyser chaque fichier
+    # Initialisation de l'indexeur ACEOB si demandé
+    indexer = CodeOptimizationIndexer(sample_size=5000)
+    if args.suggest:
+        if INDEXER_AVAILABLE:
+            try:
+                indexer = CodeOptimizationIndexer(sample_size=5000)  # ajustez selon vos besoins
+                print("Indexeur ACEOB initialisé.")
+            except Exception as e:
+                print(f"Erreur lors de l'initialisation de l'indexeur ACEOB : {e}", file=sys.stderr)
+        else:
+            print("Indexeur ACEOB non disponible (module ai.code_indexer manquant).", file=sys.stderr)
+
+    # Analyse de chaque fichier
     results = []
     for filepath in py_files:
         issues = analyze_file(filepath, config, args.no_pylint, args.no_algorithm)
+
+        # Suggestions ACEOB
+        if indexer:
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    source_code = f.read()
+                suggestions = indexer.suggest_optimization(source_code, top_k=2)
+                for s in suggestions:
+                    issues.append({
+                        'line': 0,
+                        'type': 'optimization',
+                        'message': "Optimisation possible (basée sur ACEOB)",
+                        'suggestion': f"Voici un exemple de code optimisé (similarité {s['similarity']:.2f}) :\n{s['efficient']}",
+                        'explanation': "Cette suggestion est basée sur des paires de code du dataset ACEOB."
+                    })
+            except Exception as e:
+                print(f"Erreur lors de la suggestion pour {filepath}: {e}", file=sys.stderr)
+
         results.append({
             "file": str(filepath),
             "issues": issues
         })
 
-    # Générer la sortie
+    # Génération de la sortie
     if args.output == "console":
         output_console(results)
     else:

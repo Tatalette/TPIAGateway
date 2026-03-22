@@ -16,7 +16,7 @@ class AlgorithmPattern:
 
 # Fonctions de détection
 
-def detect_bubble_sort(func_node: ast.FunctionDef) -> bool:
+def detect_bubble_sort(func_node: ast.FunctionDef, source: str = None) -> bool:
     """Détecte un tri à bulles : deux boucles for imbriquées avec échange conditionnel."""
     has_nested_loops = False
     has_swap = False

@@ -1,0 +1,5 @@
+{"code": "def sort(arr):\n    for i in range(len(arr)):\n        for j in range(len(arr)-i-1):\n            if arr[j] > arr[j+1]:\n                arr[j], arr[j+1] = arr[j+1], arr[j]\n    return arr", "labels": ["bubble_sort"]}
+{"code": "def search(lst, target):\n    for x in lst:\n        if x == target:\n            return True\n    return False", "labels": ["linear_search"]}
+{"code": "def binary_search(arr, x):\n    low = 0\n    high = len(arr)-1\n    while low <= high:\n        mid = (low + high)//2\n        if arr[mid] == x:\n            return mid\n        elif arr[mid] < x:\n            low = mid+1\n        else:\n            high = mid-1\n    return -1", "labels": ["binary_search"]}
+{"code": "def quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[0]\n    less = [x for x in arr[1:] if x <= pivot]\n    greater = [x for x in arr[1:] if x > pivot]\n    return quicksort(less) + [pivot] + quicksort(greater)", "labels": ["quick_sort"]}
+{"code": "def good_function():\n    return 42", "labels": []}

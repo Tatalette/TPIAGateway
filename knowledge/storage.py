@@ -33,7 +33,7 @@ def load_patterns():
             pattern = AlgorithmPattern(
                 name=item["name"],
                 description=item["description"],
-                detector=lambda func: False,  # par défaut, ne détecte rien
+                detector=lambda func, source: False,  # prend deux arguments
                 suggestion=item["suggestion"],
                 explanation=item["explanation"],
                 source=item["source"]
@@ -44,3 +44,4 @@ def load_patterns():
         print("Aucun fichier de motifs trouvé, démarrage avec une base vide.")
     except Exception as e:
         print(f"Erreur lors du chargement des motifs : {e}")
+
