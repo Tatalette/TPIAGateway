@@ -1,0 +1,1 @@
+Pour créer un environnement : conda env create -f environment.yml

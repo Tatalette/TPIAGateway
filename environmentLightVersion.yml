@@ -1,0 +1,17 @@
+name: ai_training
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - transformers
+  - tokenizers
+  - pytorch
+  - huggingface_hub
+  - datasets
+  - protobuf
+  - numpy
+  - scikit-learn
+  - spacy
+  - faiss-cpu
+  - sentence-transformers
+prefix: /home/Archene/.conda/envs/ai_training
